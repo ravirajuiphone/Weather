@@ -9,7 +9,7 @@
 import UIKit
 
 protocol WeatherViewProtocol: class {
-    var presenter: PresenterProtocol? { get set }
+    var presenter: WeatherPresenterProtocol? { get set }
 
     func showWeatherInfo(weatherList: [WeatherDetails],
                          weatherFullInfo: WeatherFullInfo?,
@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     private var weatherDetails: [String: [WeatherDetails]]?
     private var weatherDates: [String]?
     @IBOutlet weak var weatherTabelview: UITableView!
-    var presenter: PresenterProtocol?
+    var presenter: WeatherPresenterProtocol?
     
     fileprivate func setupView() {
         let nibName = UINib(nibName: "WeatherInfoTableViewCell", bundle: nil)

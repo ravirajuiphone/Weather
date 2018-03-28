@@ -57,19 +57,19 @@ class LocationManagerTest: XCTestCase, Error {
         
     }
 
-    class MockCLLocationManager: CLLocationManager {
-        var isRequestWhenInUse = false
-        override func requestWhenInUseAuthorization() {
-            isRequestWhenInUse = true
-        }
-        var isStartUpdatingLocation = false
-        override func startUpdatingLocation() {
-            isStartUpdatingLocation = true
-        }
-        var isStopUpdatingLocation = false
-        override func stopUpdatingLocation() {
-            isStopUpdatingLocation = true
-        }
+}
+
+class MockCLLocationManager: CLLocationManager {
+    var isRequestWhenInUse = false
+    override func requestWhenInUseAuthorization() {
+        isRequestWhenInUse = true
     }
-    
+    var isStartUpdatingLocation = false
+    override func startUpdatingLocation() {
+        isStartUpdatingLocation = true
+    }
+    var isStopUpdatingLocation = false
+    override func stopUpdatingLocation() {
+        isStopUpdatingLocation = true
+    }
 }

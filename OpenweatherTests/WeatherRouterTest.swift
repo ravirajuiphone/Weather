@@ -13,7 +13,6 @@ class WeatherRouterTest: XCTestCase {
     var navController: MockNavigationController!
     var sut: MapViewController!
     var router: WeatherWireframe!
-    
     override func setUp() {
         super.setUp()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -32,15 +31,7 @@ class WeatherRouterTest: XCTestCase {
     
     func testPresentMapViewController() {
         router.presentMapViewController()
-        XCTAssertNotNil(navController.pushedViewController as? MapViewController)
+        XCTAssertNotNil(navController.viewControllerPushed as? MapViewController)
     }
-    class MockNavigationController: UINavigationController {
-        var pushedViewController: UIViewController?
-        
-        override func pushViewController(_ viewController: UIViewController, animated: Bool) {
-            pushedViewController = viewController
-            super.pushViewController(viewController, animated: false)
-        }
-    }
-    
+
 }

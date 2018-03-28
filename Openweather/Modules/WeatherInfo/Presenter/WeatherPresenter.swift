@@ -9,35 +9,39 @@
 import Foundation
 import UIKit
 
-protocol PresenterProtocol {
+protocol WeatherPresenterProtocol {
     weak var view: WeatherViewProtocol? { get }
-    var interactor: WeatherInteractorProtocol { get }
+    var interactor: WeatherInteractorProtocol? { get }
+    var router: WeatherWireframe? { get }
     func loadWeatherInfo()
     func showInMapsTapped()
 }
 
-class WeatherPresenter: PresenterProtocol {
+class WeatherPresenter: WeatherPresenterProtocol {
     private var navigationController: UINavigationController
     private var reachability: Reachability!
-    var interactor: WeatherInteractorProtocol
+    var interactor: WeatherInteractorProtocol?
     var view: WeatherViewProtocol?
-    private var router: WeatherWireframe!
-    
+    var router: WeatherWireframe?
+    private var locationManager: LocationManager
+
     init(navigation: UINavigationController,
          view: WeatherViewProtocol,
          interactor: WeatherInteractorProtocol,
-         reachability: Reachability = Reachability()!) {
+         reachability: Reachability = Reachability()!,
+         locationManager: LocationManager = LocationManager.sharedInstance) {
         self.view = view
         self.interactor = interactor
         self.navigationController = navigation
         self.reachability = reachability
-        router = WeatherRouter(navigationVC: navigation)
+        self.router = WeatherRouter(navigationVC: navigation)
+        self.locationManager = locationManager
     }
     
     func showInMapsTapped() {
-        if LocationManager.sharedInstance.isLocationServicesEnabled(){
-            self.router.presentMapViewController()
-        }else{
+        if locationManager.isLocationServicesEnabled(){
+            self.router?.presentMapViewController()
+        } else {
             let actionSheetController: UIAlertController = UIAlertController(title: "Location", message: "Please allow location services to continue", preferredStyle: .alert)
             let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
                 //Just dismiss the action sheet
@@ -57,7 +61,7 @@ class WeatherPresenter: PresenterProtocol {
     
     func loadWeatherInfo() {
         if self.reachability.isReachable {
-            self.interactor.fetchWeatherInfo()
+            self.interactor?.fetchWeatherInfo()
         } else {
             self.showNoInternetAlert()
         }

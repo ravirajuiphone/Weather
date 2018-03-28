@@ -26,6 +26,13 @@
 		94F568E620665FC1002D1C34 /* TUI Mobility Hub - Test Project Challenge.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 94F568E520665FC1002D1C34 /* TUI Mobility Hub - Test Project Challenge.pdf */; };
 		94F568E72066C199002D1C34 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F568CB20653273002D1C34 /* ViewController.swift */; };
 		94F568EC20680A43002D1C34 /* ImageModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 94F568EA20680A43002D1C34 /* ImageModel.xcdatamodeld */; };
+		AD06448A206B81E1006BA39A /* WeatherPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD064489206B81E1006BA39A /* WeatherPresenterTest.swift */; };
+		AD06448D206B82BA006BA39A /* MockWeatherInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD06448C206B82BA006BA39A /* MockWeatherInteractor.swift */; };
+		AD06448F206B83D2006BA39A /* MockWeatherPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD06448E206B83D2006BA39A /* MockWeatherPresenter.swift */; };
+		AD064491206B8620006BA39A /* MockViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD064490206B8620006BA39A /* MockViewProtocol.swift */; };
+		AD064493206B890F006BA39A /* MockNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD064492206B890F006BA39A /* MockNavigationController.swift */; };
+		AD064495206B9D2A006BA39A /* MockLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD064494206B9D2A006BA39A /* MockLocationManager.swift */; };
+		AD064497206BA366006BA39A /* MockWeatherRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD064496206BA366006BA39A /* MockWeatherRouter.swift */; };
 		AD359195206AA2F400A5A2CD /* WeatherPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD359194206AA2F400A5A2CD /* WeatherPresenter.swift */; };
 		AD35919A206AAC5D00A5A2CD /* WeatherInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD359196206AAC5D00A5A2CD /* WeatherInteractor.swift */; };
 		AD35919C206AAC5D00A5A2CD /* WeatherRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD359198206AAC5D00A5A2CD /* WeatherRouter.swift */; };
@@ -66,6 +73,13 @@
 		94F568E120653D6C002D1C34 /* WeatherInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherInfoTableViewCell.xib; sourceTree = "<group>"; };
 		94F568E520665FC1002D1C34 /* TUI Mobility Hub - Test Project Challenge.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "TUI Mobility Hub - Test Project Challenge.pdf"; sourceTree = "<group>"; };
 		94F568EB20680A43002D1C34 /* ImageModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ImageModel.xcdatamodel; sourceTree = "<group>"; };
+		AD064489206B81E1006BA39A /* WeatherPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherPresenterTest.swift; sourceTree = "<group>"; };
+		AD06448C206B82BA006BA39A /* MockWeatherInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWeatherInteractor.swift; sourceTree = "<group>"; };
+		AD06448E206B83D2006BA39A /* MockWeatherPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWeatherPresenter.swift; sourceTree = "<group>"; };
+		AD064490206B8620006BA39A /* MockViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockViewProtocol.swift; sourceTree = "<group>"; };
+		AD064492206B890F006BA39A /* MockNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNavigationController.swift; sourceTree = "<group>"; };
+		AD064494206B9D2A006BA39A /* MockLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocationManager.swift; sourceTree = "<group>"; };
+		AD064496206BA366006BA39A /* MockWeatherRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWeatherRouter.swift; sourceTree = "<group>"; };
 		AD359194206AA2F400A5A2CD /* WeatherPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherPresenter.swift; sourceTree = "<group>"; };
 		AD359196206AAC5D00A5A2CD /* WeatherInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherInteractor.swift; sourceTree = "<group>"; };
 		AD359198206AAC5D00A5A2CD /* WeatherRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherRouter.swift; sourceTree = "<group>"; };
@@ -187,8 +201,10 @@
 		94F568A92063E632002D1C34 /* OpenweatherTests */ = {
 			isa = PBXGroup;
 			children = (
+				AD06448B206B8294006BA39A /* Mocks */,
 				94F568AA2063E632002D1C34 /* OpenweatherTests.swift */,
 				94F2FF21206B6858000F8009 /* WeatherRouterTest.swift */,
+				AD064489206B81E1006BA39A /* WeatherPresenterTest.swift */,
 				94F568AC2063E632002D1C34 /* Info.plist */,
 				94F2FEFD20696F81000F8009 /* ImageCacheTest.swift */,
 				94F2FEFF206974EB000F8009 /* LocationManagerTest.swift */,
@@ -250,6 +266,19 @@
 				94F568D5206532DC002D1C34 /* LocationManager.swift */,
 			);
 			path = Location;
+			sourceTree = "<group>";
+		};
+		AD06448B206B8294006BA39A /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				AD06448C206B82BA006BA39A /* MockWeatherInteractor.swift */,
+				AD06448E206B83D2006BA39A /* MockWeatherPresenter.swift */,
+				AD064490206B8620006BA39A /* MockViewProtocol.swift */,
+				AD064492206B890F006BA39A /* MockNavigationController.swift */,
+				AD064496206BA366006BA39A /* MockWeatherRouter.swift */,
+				AD064494206B9D2A006BA39A /* MockLocationManager.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -377,9 +406,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD064495206B9D2A006BA39A /* MockLocationManager.swift in Sources */,
+				AD064491206B8620006BA39A /* MockViewProtocol.swift in Sources */,
 				94F2FEFE20696F81000F8009 /* ImageCacheTest.swift in Sources */,
+				AD064493206B890F006BA39A /* MockNavigationController.swift in Sources */,
+				AD06448A206B81E1006BA39A /* WeatherPresenterTest.swift in Sources */,
 				94F2FF00206974EB000F8009 /* LocationManagerTest.swift in Sources */,
+				AD06448F206B83D2006BA39A /* MockWeatherPresenter.swift in Sources */,
+				AD06448D206B82BA006BA39A /* MockWeatherInteractor.swift in Sources */,
 				94F568AB2063E632002D1C34 /* OpenweatherTests.swift in Sources */,
+				AD064497206BA366006BA39A /* MockWeatherRouter.swift in Sources */,
 				94F2FF22206B6858000F8009 /* WeatherRouterTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

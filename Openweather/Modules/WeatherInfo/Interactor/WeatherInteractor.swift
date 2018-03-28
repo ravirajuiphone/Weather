@@ -19,14 +19,14 @@ protocol WeatherInteractorOutput: class {
 
 
 protocol WeatherInteractorProtocol: class {
-    weak var output: WeatherInteractorOutput! { get set }
+    weak var output: WeatherInteractorOutput? { get set }
     
     func fetchWeatherInfo()
 }
 
 
 class WeatherInteractor: WeatherInteractorProtocol {
-    weak var output: WeatherInteractorOutput!
+    weak var output: WeatherInteractorOutput?
     var weatherList = [WeatherDetails]()
     var weatherFullInfo: WeatherFullInfo?
     var weatherDetails: [String: [WeatherDetails]]?
@@ -39,7 +39,7 @@ class WeatherInteractor: WeatherInteractorProtocol {
             }
         }) { (error) in
             print(error?.localizedDescription ?? "")
-            self.output.weatherFetchFailed()
+            self.output?.weatherFetchFailed()
         }
     }
 
@@ -53,7 +53,7 @@ class WeatherInteractor: WeatherInteractorProtocol {
         if let weather = self.weatherDetails {
             self.weatherDates = Array(weather.keys.sorted())
         }
-        self.output.weatherInfoFetched(weatherList: weatherList,
+        self.output?.weatherInfoFetched(weatherList: weatherList,
                                        weatherFullInfo: weatherFullInfo,
                                        weatherDetails: weatherDetails,
                                        weatherDates: weatherDates)

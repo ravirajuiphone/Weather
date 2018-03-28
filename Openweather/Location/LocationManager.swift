@@ -16,8 +16,7 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
     var lastKnownLocation : CLLocationCoordinate2D?
     var postalCode: String? = nil
     // Location Manager helper stuff
-    private override init() {
-    }
+
     func initLocationManager(locManager: CLLocationManager = CLLocationManager()) {
         self.locationManagerObj = locManager
         locationManagerObj.delegate = self
